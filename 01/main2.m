@@ -42,7 +42,7 @@ for run=1:num_runs
         % mutacia
         %Cross = muta(Cross, mr, Amp, Space); % aditivna mutacia
         Cross = mutx(Cross, mr, Space); % obycajna mutacia
-        %Cross = muta(Cross, mr, Amp, Space); % multiplikativna mutacia
+        %Cross = mutm(Cross, mr, Amp, Space); % multiplikativna mutacia
 
         % nova Populacia
         Pop = [Elite; Cross]; 

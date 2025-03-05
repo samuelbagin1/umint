@@ -48,6 +48,7 @@ while step_count < 3
     % najdeme najmensiu hodnotu a index najmensej hodnoty
     [min_val, iX] = min([y_current, y_left, y_right]);
     
+    % epsilon check
     if iX == 1 || abs(y_current - y_left) < 0.01 || abs(y_current - y_right) < 0.01
         %oznacim stary point
         plot(x_current, y_current, 'm*', 'MarkerSize', 15, 'LineWidth', 2);
@@ -67,9 +68,10 @@ while step_count < 3
         
         %vykreslim novy point
         plot(x_current, y_current, 'ro', 'MarkerSize', 10, 'LineWidth', 2);
-    else
+
+    else  % ak nie je to iste alebo je vacsi epsilon
         if iX == 2
-            x_new = x_left;
+            x_new = x_left;  % posunieme sa do lava alebo doprava
         else
             x_new = x_right;
         end
@@ -85,6 +87,7 @@ while step_count < 3
     end
 end
 
+% glob extrem
 plot(x_global_extrem, y_global_extrem, 'b*', 'MarkerSize', 15, 'LineWidth', 2);
 fprintf('coord najedeneho glob min: %.2f %.2f\n', x_global_extrem, y_global_extrem);
 
