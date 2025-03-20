@@ -76,6 +76,6 @@ fprintf('coord: %s\n', mat2str(best_solutions(best_run, :), 3));
 fprintf('F(x): %.2f\n', overall_best_fit);
 
 % ulozenie grafu
-saveas(gcf, 'porovnanie_behov_ga.png');
+saveas(gcf, 'GA_uloha2.png');
 % ulozenie var do .mat
 save('vysledky_ga.mat', 'best_solutions', 'best_fitnesses', 'all_fittrend');

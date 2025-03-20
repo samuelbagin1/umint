@@ -46,7 +46,8 @@ for run = 1:num_runs
         [psize, pmid] = size(Mid);
 
 
-        % docasna populacia na krizenie, mutovanie a invord
+        % docasna populacia na krizenie, mutovanie a invord pre stred
+        % chromozonu
         tmp_Pop = zeros(psize, pmid); %rows, cols
         tmp_Pop = Mid;
         tmp_Pop = swappart(tmp_Pop, mr); % krizenie
@@ -66,7 +67,7 @@ for run = 1:num_runs
     fprintf([repmat(' %2d ',1,numel(Pop(idx,:))) '\n'],Pop(idx,:));
     plot(fittrend, 'LineWidth', 1); % vykreslenie grafu
 end
-
+saveas(gcf, 'GA_uloha3.png');
 hold off;
 
 %% vypisanie vysledku
@@ -82,6 +83,7 @@ title(sprintf('optimal length: %.2f', best_fitnesses(best_run)));
 xlabel('X');
 ylabel('Y');
 grid on;
+saveas(gcf, 'cesta_uloha3.png');
 
 %% functions
 function Pop = genrpop_perm(pop_size, num_points) %vygenerovanie populacie - permutacii
