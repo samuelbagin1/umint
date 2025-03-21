@@ -75,6 +75,8 @@ while step_count < 3
     end
 end
 
+fprintf('coord najedeneho glob min: %.2f %.2f\n', global_min_pos(1), global_min_pos(2));
 %global min
 plot(global_min_pos(1), global_min_pos(2), 'b*', 'MarkerSize', 15, 'LineWidth', 2);
+saveas(gcf, 'GA_uloha1b.png');
 hold off;

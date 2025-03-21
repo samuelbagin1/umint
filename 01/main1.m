@@ -91,4 +91,6 @@ end
 plot(x_global_extrem, y_global_extrem, 'b*', 'MarkerSize', 15, 'LineWidth', 2);
 fprintf('coord najedeneho glob min: %.2f %.2f\n', x_global_extrem, y_global_extrem);
 
+saveas(gcf, 'GA_uloha1.png');
+
 hold off;
