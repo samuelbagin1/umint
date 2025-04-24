@@ -67,6 +67,7 @@ MAE_test = max(abs(y2 - out_test));
 % Vykreslenie priebehov
 figure
 plot(x(indx_train),y1,'b+',x(indx_test),y2,'g*')
+legend('train', 'test')
 hold on
 plot(x,outnetsim,'-or')
 
