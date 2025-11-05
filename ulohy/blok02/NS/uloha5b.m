@@ -1,18 +1,18 @@
-% Príklad na aproximáciu nelin. funkcie pomocou NS typu
-% MLP siet s 1 vstupom a 1 vıstupom
+% PrÃ­klad na aproximÃ¡ciu nelin. funkcie pomocou NS typu
+% MLP siet s 1 vstupom a 1 vÃ½stupom
 clear
 load datafun.mat
 
-% vytvorenie štruktúry NS 
+% vytvorenie Å¡truktÃºry NS 
 % 1 vstup - x suradnica
-% 1 skrytá vrstva s poctom neurónov 25 s funkciou 'tansig'
-% 1 vıstup s funkciou 'purelin' - y suradnica
-% trénovacia metóda - Levenberg-Marquardt
+% 1 skrytÃ¡ vrstva s poctom neurÃ³nov 25 s funkciou 'tansig'
+% 1 vÃ½stup s funkciou 'purelin' - y suradnica
+% trÃ©novacia metÃ³da - Levenberg-Marquardt
 pocet_neuronov=25;
 net=fitnet(pocet_neuronov);
 
 %%%%%%%%% vyber rozdelenia %%%%%%%%%%%%%%
-%net.divideFcn='dividerand'; % náhodné rozdelenie
+%net.divideFcn='dividerand'; % nÃ¡hodnÃ© rozdelenie
 
 % % net.divideFcn='divideblock'; % blokove
 
@@ -35,24 +35,24 @@ net.divideParam.valInd=[];
 net.divideParam.testInd=indx_test;
 
 
-% Nastavenie parametrov trénovania
+% Nastavenie parametrov trÃ©novania
 net.trainParam.goal = 1e-4;     % Ukoncovacia podmienka na chybu
-net.trainParam.show = 5;        % Frekvencia zobrazovania priebehu chyby trénovania net.trainParam.epochs = 100;  % Max. po?et trénovacích cyklov.
+net.trainParam.show = 5;        % Frekvencia zobrazovania priebehu chyby trÃ©novania net.trainParam.epochs = 100;  % Max. po?et trÃ©novacÃ­ch cyklov.
 net.trainParam.epochs = 100;      % maximalny pocet trenovacich epoch.
 
-% % Trénovanie NS
+% % TrÃ©novanie NS
 net=train(net,x,y);
 
-% % Simulácia vıstupu NS
+% % SimulÃ¡cia vÃ½stupu NS
 outnetsim = sim(net,x);
 
-% Simulácia vıstupu NS
+% SimulÃ¡cia vÃ½stupu NS
 % outnetsim = sim(net,x);
 y1=y(indx_train);
 y2=y(indx_test);
 
 % vypocet chyby siete
-% doplni 
+% doplniÂ 
 out_train = outnetsim(indx_train);
 out_test = outnetsim(indx_test);
 
@@ -70,5 +70,3 @@ plot(x(indx_train),y1,'b+',x(indx_test),y2,'g*')
 legend('train', 'test')
 hold on
 plot(x,outnetsim,'-or')
-
-
